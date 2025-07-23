@@ -16,6 +16,7 @@ NSCpp is built as a **modular** library, using a flexible **Channel-based archit
 - [Usage Example](#usage-example)
 - [Architecture](#architecture)
 - [Communication & Architecture Diagrams](communication-&-architecture-diagrams)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
 
 ## Security Considerations
@@ -54,6 +55,18 @@ During development, I made a few *implementation choices* that aren’t reflecte
 
 ## Communication & Architecture Diagrams
 TODO : Key exchange's diagram, channel system diagram, group system diagram, serialization diagram, other if i have the idea.
+
+## Documentation
+I’ve also generated a full [documentation](https://tom-kb.github.io/NSCpp/annotated.html) using Doxygen.
+Below is a brief description of each class, along with a link to its detailed reference in the documentation
+  - [ServerPP](https://tom-kb.github.io/NSCpp/class_server_p_p.html) : ...
+  - [ClientPP](https://tom-kb.github.io/NSCpp/class_client_p_p.html) : ...
+  - [Channel](https://tom-kb.github.io/NSCpp/class_channel.html) : ...
+    + [DebugChannel](https://tom-kb.github.io/NSCpp/class_debug_channel.html) : ...
+    + [HelperChannel](https://tom-kb.github.io/NSCpp/class_helper_channel.html) : ...
+    + [LogChannel](https://tom-kb.github.io/NSCpp/class_log_channel.html) : ...
+  - [Serializer](https://tom-kb.github.io/NSCpp/class_serializer.html) : ...
+  - [GroupManager](https://tom-kb.github.io/NSCpp/class_group_manager.html) : ...
 
 ## Contributing
 Contributions are welcome.  
