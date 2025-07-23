@@ -1,0 +1,28 @@
+var crypto__box__curve25519xsalsa20poly1305_8h =
+[
+    [ "crypto_box_curve25519xsalsa20poly1305_BEFORENMBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#a5a481210d9a4d01a6c90629262bfde2a", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_BOXZEROBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#ac18f2df24aadec0a325f839bfb30998b", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_MACBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#a04893ad89d4cd85da2955b6524b25f01", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_MESSAGEBYTES_MAX", "crypto__box__curve25519xsalsa20poly1305_8h.html#a9696ca6a0040cf640cd1c1ff16d6bcb3", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_NONCEBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#a910c4a81ca152e253e88340375963635", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_PUBLICKEYBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#aea628d0eba9f238757506db9bed2d882", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_SECRETKEYBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#a46b291b142adee1c680a146c023b046d", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_SEEDBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#a2ec8f473ee993c262e62a97aa445fe07", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_ZEROBYTES", "crypto__box__curve25519xsalsa20poly1305_8h.html#a5028da5d135f0804b8e4ab2d4de9f1a9", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305", "crypto__box__curve25519xsalsa20poly1305_8h.html#a532e1b5acce7061824947c06ce35195f", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_afternm", "crypto__box__curve25519xsalsa20poly1305_8h.html#a8ee8088ffe578299e1d7d258877d7482", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_beforenm", "crypto__box__curve25519xsalsa20poly1305_8h.html#a8690d4065826660ccdaa0d17ed55efb5", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_beforenmbytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#a455915b8287e215d8f265b34b8519695", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_boxzerobytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#ace119050df9c34110698f86294b40a16", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_keypair", "crypto__box__curve25519xsalsa20poly1305_8h.html#ada5802b52eb5260eca7db843d482838a", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_macbytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#ab9e60efcb5f963b5488c437994adf50d", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_messagebytes_max", "crypto__box__curve25519xsalsa20poly1305_8h.html#a6869c4c704da51175074e3f1bb36d165", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_noncebytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#a584c2cfc640ba92f16e925f1977101f8", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_open", "crypto__box__curve25519xsalsa20poly1305_8h.html#a5292302bd8ee9603ff111bec30ee8a2c", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_open_afternm", "crypto__box__curve25519xsalsa20poly1305_8h.html#acbce5095fe56f2f3cc3331f5bfda6b7f", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_publickeybytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#a43620088f6769c2c718bdf7b1c39a957", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_secretkeybytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#a13965b8aba03ffbe43ceba94eefade2d", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_seed_keypair", "crypto__box__curve25519xsalsa20poly1305_8h.html#a3063bfb96691919bd0c26eecc80e9609", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_seedbytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#a8760cb770f8c27848eda862ad46c9c5c", null ],
+    [ "crypto_box_curve25519xsalsa20poly1305_zerobytes", "crypto__box__curve25519xsalsa20poly1305_8h.html#a6ce7ccafc76a0dcf8887fdbe40305b5b", null ]
+];

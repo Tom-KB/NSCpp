@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['secretkey_0',['secretKey',['../class_key_exchange_sodium.html#a4d7c40ec2eb33a65f0760cacbc4be132',1,'KeyExchangeSodium']]],
+  ['separator_1',['separator',['../class_serializer.html#a0223ddefca16dc35c5c041f80cf455f6',1,'Serializer']]],
+  ['serializedstrings_2',['serializedStrings',['../class_serializer.html#af7714da12b19ec36689865cab0e07758',1,'Serializer']]],
+  ['serverpkfile_3',['ServerPKFile',['../class_client_p_p.html#a6767668c2e1ec2dd6f109ed01aca74fc',1,'ClientPP']]],
+  ['sharedsecret_4',['sharedSecret',['../class_key_exchange_interface.html#a088c7a5872c85b969b1dbe655141509e',1,'KeyExchangeInterface::sharedSecret'],['../class_symmetric_cipher_interface.html#a15631908680f95a1e25218cb25cb28d9',1,'SymmetricCipherInterface::sharedSecret']]],
+  ['side_5',['side',['../class_key_exchange_sodium.html#a652f1573ee96f7f7a9e6a4cd62b43f95',1,'KeyExchangeSodium']]],
+  ['sin_6',['sin',['../struct_server_event.html#a686364f8c202a677112f2455ed4c939f',1,'ServerEvent::sin'],['../struct_client.html#a4b25069bb3b1b1ead48e51ffe67fbd58',1,'Client::sin'],['../struct_server.html#a52c534fbea598a13b3172e59894ec8d7',1,'Server::sin']]],
+  ['skfile_7',['SKFile',['../class_client_p_p.html#a6fc41d364b2e1ef6927edaa65e4cfb7f',1,'ClientPP']]],
+  ['socket_8',['socket',['../struct_client_data.html#a8ed5eccaf159f3050ebf46747edc02bf',1,'ClientData::socket'],['../struct_server_event.html#aa9f9f3aec0c74839872b762e2222c3fc',1,'ServerEvent::socket'],['../struct_client.html#aab1eb9aade8a3ebb53555a1934f71936',1,'Client::socket'],['../struct_server.html#ab46b6c7084cad32a1c2b2b86d889125d',1,'Server::socket']]],
+  ['socketset_9',['socketSet',['../struct_client.html#ad7b131be93d25736aee73f2a1e36da6a',1,'Client::socketSet'],['../struct_server.html#af24043881c8067c9836925b573ae05a9',1,'Server::socketSet']]],
+  ['st_10',['st',['../structcrypto__kdf__hkdf__sha256__state.html#ad1c7dba0a558872faac43f0a28c2f0be',1,'crypto_kdf_hkdf_sha256_state::st'],['../structcrypto__kdf__hkdf__sha512__state.html#ae7f147fa9e90afecc8881dcf6c3dafee',1,'crypto_kdf_hkdf_sha512_state::st']]],
+  ['state_11',['state',['../class_channel.html#ac2ae0a08b2b5b29a869f1d657548c112',1,'Channel::state'],['../structcrypto__hash__sha256__state.html#ad931509114c5beb56f2c053b63cff825',1,'crypto_hash_sha256_state::state'],['../structcrypto__hash__sha512__state.html#ab38c7a19557ae78954b63e023266448c',1,'crypto_hash_sha512_state::state']]],
+  ['statepull_12',['statePull',['../class_symmetric_cipher_sodium.html#af12d10e1ff53e3dc803a59a3eeae40d2',1,'SymmetricCipherSodium']]],
+  ['statepush_13',['statePush',['../class_symmetric_cipher_sodium.html#a4cbe24b808f1b6ee8f9dfd0c2bbcbb42',1,'SymmetricCipherSodium']]],
+  ['stir_14',['stir',['../structrandombytes__implementation.html#a717f412e847fd1e809dc364a62682300',1,'randombytes_implementation']]],
+  ['stoptag_15',['stopTag',['../class_client_p_p.html#a989cc24683c5daaf470bb1526bc04e9c',1,'ClientPP']]],
+  ['stream_16',['stream',['../class_debug_channel.html#af52ebcedacdbd3bff402df56fd2d087e',1,'DebugChannel::stream'],['../class_log_channel.html#a87266699a6f99137ec61bc35eb6ce014',1,'LogChannel::stream']]],
+  ['symmetriccipher_17',['symmetricCipher',['../class_client_p_p.html#a62331f449b9a048518b36dd3d91da2da',1,'ClientPP']]]
+];
