@@ -14,7 +14,7 @@ NSCpp is built as a **modular** library, using a flexible **Channel-based archit
 - [Security Considerations](#security-considerations)
 - [Features](#features)
 - [Architecture](#architecture)
-- [Communication & Architecture Diagrams](communication-&-architecture-diagrams)
+- [Communication & Architecture Diagrams](#communication--architecture-diagrams)
 - [Documentation](#documentation)
 - [Usage Example](#usage-example)
 - [Contributing](#contributing)
@@ -29,7 +29,7 @@ That said, it's up to you to ensure proper key management and integration in you
 This project is a C++ overlay of my [NSC](https://github.com/Tom-KB/NSC/tree/main) project — with additional features!  
 Here’s a list of what NSC++ offers:
  - **IPv4** and **IPv6** support
- - **TCP** and **UDP** communications protocols (both wrapped inside the **Server** and **Client**)
+ - **TCP** and **UDP** communication protocols (both wrapped inside the **Server** and **Client**)
  - ***Message framing*** for TCP
  - **Domain Name resolution**
  - An **event** system
@@ -64,9 +64,120 @@ Below is a brief description of each class, along with a link to its detailed re
   - [GroupManager](https://tom-kb.github.io/NSCpp/class_group_manager.html) : A singleton class to manage channels within a group and handle communication across them
 
 ## Communication & Architecture Diagrams
-TODO : Key exchange's diagram, channel system diagram, group system diagram, serialization diagram, other if i have the idea.
+**NB** : For these diagrams, I used the "/" as separator.
+
+### Key Exchange & Symmetric ciphering
+<img width="1609" height="745" alt="1" src="https://github.com/user-attachments/assets/0212c373-5d3d-4446-8f87-d20e10cee071" />
+
+### Channel system
+<img width="1135" height="810" alt="2" src="https://github.com/user-attachments/assets/6fb78927-0838-4758-a7ec-6face87d061a" />
+
+Here is a simple example showing how to instantiate channels and plug them into the server:
+```cpp
+shared_ptr<Channel> debugChannel = make_unique<DebugChannel>("debugChannel", cout);
+shared_ptr<LogChannel> logChannel = make_unique<LogChannel>("logChannel", "log-");
+shared_ptr<HelperChannel> helperChannel = make_unique<HelperChannel>("helperChannel");
+server->plug(debugChannel, ChannelType::GLOBAL | ChannelType::METADATA);
+server->plug(helperChannel, ChannelType::DATA);
+server->plug(logChannel, ChannelType::SLEEPING);
+```
 
 ## Usage example
+In the [examples](examples/) folder, you’ll find the same example as in [NSC](https://github.com/Tom-KB/NSC)—C^LI adapted for NSC++.  
+Currently, it’s developed specifically for Windows, as I’m working with Visual Studio 2022, but I may add a Makefile for C^LI++ on Linux in the future.
+
+You’ll also find additional examples showcasing specific use cases of NSC++ that I consider important.
+
+### Server's creation with specific keys
+```cpp
+unique_ptr<ServerPP> server = make_unique<ServerPP>("127.0.0.1", 25565, "/", IP_Type::IPv4, true, "public.key", "private.key");
+server->start();
+// ...
+server->stop();
+```
+If you don't specify the public and private keys, a new key pair will be automatically generated and saved using default filenames.
+You can then share the **public key** with your clients and reuse the generated keys for your server.
+
+### Client's creation
+```cpp
+unique_ptr<ClientPP> client = make_unique<ClientPP>("127.0.0.1", 25565, "/", IP_Type::IPv4, true);
+client->setServerPKPath("serverPK.key");
+client->setKeysPaths("public.key", "private.key"); // Optional
+client->start();
+// ...
+client->stop();
+```
+The same applies to clients: if you want to reuse the same public/private key pair, you can specify them manually. Otherwise, a new key pair will be generated and saved each time the client runs.
+
+### Client's message
+```cpp
+std::string message = "...";
+client->send(message, ConnType::TCP);
+// or
+client->send(message, ConnType::UDP);
+```
+This is the client-sided behaviour.
+
+### Client's callback
+```cpp
+client->addDataCallback("", generalCallback); // General callback (no key)
+client->addDataCallback("group1", anotherCallback); // Callback triggered by the "group1" key
+client->addDisconnectionCallback(disconnectionCallback); // Disconnection callback (can hold multiple callbacks)
+```
+**For now**, only one callback can be registered per key. I believe that if you need to notify multiple handlers, you can build that logic within a single callback.
+However, if I later find that supporting multiple callbacks per key is truly essential, I’ll consider adding it as a feature.
+
+### Channels
+```cpp
+// Channel example
+void ExampleChannel::run(stop_token st) {
+    stringstream ss;
+    GroupManager& groupManager = GroupManager::getInstance();
+    Serializer& serializer = Serializer::getInstance();
+    while (!st.stop_requested()) {
+        if (available()) {
+            ss.str("");
+            ClientData clientData = pull();
+
+            if (clientData.type == Connection) {
+                // Do something
+            }
+            else if (clientData.type == Disconnection) {
+                // Do something
+            }
+            else if (clientData.type == DataReceived) {
+                // The data is split using the separator defined during the server’s creation
+                for (int i = 0; i < clientData.data.size(); ++i) {
+                    ss << clientData.data[i] << endl;
+                }
+                if (logging) groupManager.send(logKey, "[EXAMPLE] Received messsage by " + clientData.client->getID() + " : " + ss.str() + "\n");
+                clientData.client->send(serializer.get(key));
+
+                if (echo) {
+                    switch (clientData.connType) {
+                    case ConnType::TCP:
+                        clientData.client->send(ss.str(), ConnType::TCP);
+                        if (logging) groupManager.send(logKey, "[EXAMPLE] [TCP] ECHO : " + ss.str());
+                        break;
+                    case ConnType::UDP:
+                        sendUDP(&clientData.socket, &clientData.addr, clientData.ipType, ss.str());
+                        if (logging) groupManager.send(logKey, "[EXAMPLE] [UDP] ECHO : " + ss.str());
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+```
+This example demonstrates several common use cases for channel usage.
+Of course, if a channel isn't designed to handle **METADATA**, you can safely remove the `if` statements related to connection and disconnection events (the same goes for non **DATA** nor **GLOBAL** channels).
+
+You’ll also see how the group system works in practice: for instance, when a *LoggingChannel* is created, it’s automatically added to a group **based on its key**. Sending data to that group will result in it being logged.
+
+This example also highlights an important point: to respond correctly to a client based on the communication protocol, you may need to adapt your usage patterns accordingly.  
+If you need to associate a **TCP socket** with its corresponding **UDP address**, you’ll need to implement that logic yourself.
+(I might add a dedicated channel for this in the future, but it *won’t* be included as part of the core set.)
 
 ## Contributing
 Contributions are welcome.  
