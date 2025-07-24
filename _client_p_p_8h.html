@@ -220,13 +220,7 @@ Functions</h2></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="_client_p_p_8h_source.html#l00033">33</a> of file <a class="el" href="_client_p_p_8h_source.html">ClientPP.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>                      {</div>
-<div class="line"><span class="lineno">   35</span>    <a class="code hl_enumvalue" href="#af7f22c7d662171af2c3a5b74f621dc98a54b4c4075463b2e02cd69f5cd139b5b2">LOCAL</a>, </div>
-<div class="line"><span class="lineno">   37</span>    <a class="code hl_enumvalue" href="#af7f22c7d662171af2c3a5b74f621dc98a62f728a9642195060871a70b9b60c937">REMOTE</a> </div>
-<div class="line"><span class="lineno">   38</span>};</div>
-<div class="ttc" id="a_client_p_p_8h_html_af7f22c7d662171af2c3a5b74f621dc98a54b4c4075463b2e02cd69f5cd139b5b2"><div class="ttname"><a href="#af7f22c7d662171af2c3a5b74f621dc98a54b4c4075463b2e02cd69f5cd139b5b2">ClientType::LOCAL</a></div><div class="ttdeci">@ LOCAL</div><div class="ttdoc">Client-Side.</div><div class="ttdef"><b>Definition</b> <a href="_client_p_p_8h_source.html#l00035">ClientPP.h:35</a></div></div>
-<div class="ttc" id="a_client_p_p_8h_html_af7f22c7d662171af2c3a5b74f621dc98a62f728a9642195060871a70b9b60c937"><div class="ttname"><a href="#af7f22c7d662171af2c3a5b74f621dc98a62f728a9642195060871a70b9b60c937">ClientType::REMOTE</a></div><div class="ttdeci">@ REMOTE</div><div class="ttdoc">Server-Side.</div><div class="ttdef"><b>Definition</b> <a href="_client_p_p_8h_source.html#l00037">ClientPP.h:37</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -254,12 +248,7 @@ template&lt;typename T&gt; </div>
 <p>Template which can be used to create DataReceived callbacks from class' methods. </p>
 
 <p class="definition">Definition at line <a class="el" href="_client_p_p_8h_source.html#l00062">62</a> of file <a class="el" href="_client_p_p_8h_source.html">ClientPP.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>                                                                        {</div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> [ptr, method](std::vector&lt;std::string&gt; v) {</div>
-<div class="line"><span class="lineno">   64</span>        (ptr-&gt;*method)(v);</div>
-<div class="line"><span class="lineno">   65</span>        };</div>
-<div class="line"><span class="lineno">   66</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a3046ce3c8b674d06eb4c3085bedb3004" name="a3046ce3c8b674d06eb4c3085bedb3004"></a>
@@ -286,12 +275,7 @@ template&lt;typename T&gt; </div>
 <p>Template which can be used to create Disconnection callbacks from class' methods. </p>
 
 <p class="definition">Definition at line <a class="el" href="_client_p_p_8h_source.html#l00070">70</a> of file <a class="el" href="_client_p_p_8h_source.html">ClientPP.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                             {</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> [ptr, method]() {</div>
-<div class="line"><span class="lineno">   72</span>        (ptr-&gt;*method)();</div>
-<div class="line"><span class="lineno">   73</span>        };</div>
-<div class="line"><span class="lineno">   74</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="aa5b36b94d72db4af9447f53a13a12832" name="aa5b36b94d72db4af9447f53a13a12832"></a>
