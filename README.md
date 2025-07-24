@@ -13,10 +13,10 @@ NSCpp is built as a **modular** library, using a flexible **Channel-based archit
 ## Table of Contents
 - [Security Considerations](#security-considerations)
 - [Features](#features)
-- [Usage Example](#usage-example)
 - [Architecture](#architecture)
 - [Communication & Architecture Diagrams](communication-&-architecture-diagrams)
 - [Documentation](#documentation)
+- [Usage Example](#usage-example)
 - [Contributing](#contributing)
 
 ## Security Considerations
@@ -36,16 +36,14 @@ Here’s a list of what NSC++ offers:
  - **Windows** and **Linux** support
  - A **Channel-based architecture** 
  - A **separator system** to structure your message
- - A **serializer** to easily manipulate messages using the separator format.
- - A **group system** to exchange information across multiple channels.
+ - A **serializer** to easily manipulate messages using the separator format
+ - A **group system** to exchange information across multiple channels
  - **Key exchange** and **symmetric encryption**, powered by the libsodium backend of [KISS](https://github.com/Tom-KB/KISS/tree/main)
  - 3 **basic channels** :
    + *Debugging*
    + *Channels discovery* (informs clients which channels are plugged)
    + *Logging*
- - A **client wrapper** with a **convenient callback system** to easily handle and process incoming data.
-
-## Usage example
+ - A **client wrapper** with a **convenient callback system** to easily handle and process incoming data
 
 ## Architecture
 Here is the class diagram I designed and used to build this project :
@@ -53,20 +51,22 @@ Here is the class diagram I designed and used to build this project :
 **NB**: There are some differences between this diagram and the final implementation.  
 During development, I made a few *implementation choices* that aren’t reflected in the diagram.
 
+## Documentation
+I’ve also generated a full [documentation](https://tom-kb.github.io/NSCpp/annotated.html) using Doxygen.  
+Below is a brief description of each class, along with a link to its detailed reference in the documentation
+  - [ServerPP](https://tom-kb.github.io/NSCpp/class_server_p_p.html) : Used to instantiate the server and plug in your custom channels
+  - [ClientPP](https://tom-kb.github.io/NSCpp/class_client_p_p.html) : Used to instantiate the client, register event callbacks, and handle communication with the server
+  - [Channel](https://tom-kb.github.io/NSCpp/class_channel.html) : Abstract base class to derive when creating custom channels
+    + [DebugChannel](https://tom-kb.github.io/NSCpp/class_debug_channel.html) : A debug channel that logs messages to a given output stream and can echo them back to the sender
+    + [HelperChannel](https://tom-kb.github.io/NSCpp/class_helper_channel.html) : A channel discovery tool that, when triggered, responds to the sender with a list of all currently plugged channels
+    + [LogChannel](https://tom-kb.github.io/NSCpp/class_log_channel.html) : A logging channel that can either actively log all server messages or be triggered via a group to log specific input
+  - [Serializer](https://tom-kb.github.io/NSCpp/class_serializer.html) : A singleton class for manipulating strings structured using the separator system
+  - [GroupManager](https://tom-kb.github.io/NSCpp/class_group_manager.html) : A singleton class to manage channels within a group and handle communication across them
+
 ## Communication & Architecture Diagrams
 TODO : Key exchange's diagram, channel system diagram, group system diagram, serialization diagram, other if i have the idea.
 
-## Documentation
-I’ve also generated a full [documentation](https://tom-kb.github.io/NSCpp/annotated.html) using Doxygen.
-Below is a brief description of each class, along with a link to its detailed reference in the documentation
-  - [ServerPP](https://tom-kb.github.io/NSCpp/class_server_p_p.html) : ...
-  - [ClientPP](https://tom-kb.github.io/NSCpp/class_client_p_p.html) : ...
-  - [Channel](https://tom-kb.github.io/NSCpp/class_channel.html) : ...
-    + [DebugChannel](https://tom-kb.github.io/NSCpp/class_debug_channel.html) : ...
-    + [HelperChannel](https://tom-kb.github.io/NSCpp/class_helper_channel.html) : ...
-    + [LogChannel](https://tom-kb.github.io/NSCpp/class_log_channel.html) : ...
-  - [Serializer](https://tom-kb.github.io/NSCpp/class_serializer.html) : ...
-  - [GroupManager](https://tom-kb.github.io/NSCpp/class_group_manager.html) : ...
+## Usage example
 
 ## Contributing
 Contributions are welcome.  
