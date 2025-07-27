@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <shared_mutex>
+#include <sstream>
 
 #ifndef _SERIALIZER_H
 #define _SERIALIZER_H
@@ -18,18 +19,6 @@
  * @param value String in which the separators will be removed.
  */
 void sanitizeString(const std::string& separator, std::string& value);
-
-/**
- * @brief Insert a value at the given index in a serialized string.
- * @warning The value at this index will be replaced by the one you gave.
- * @details Index is based on separator's split. E.g. : "A/B/C" with sep="/" => [0] = "A", [1] = "B", [2] = "C"
- * @param index Index of the insertion.
- * @param separator Separator used in the serialized string.
- * @param seriStr Serialized string on which the insertion is made.
- * @param value Value to insert at the given index.
- */
-void insertAt(const size_t& index, const std::string& separator, std::string& seriStr, const std::string& value);
-
 
 class Serializer {
 public: 
@@ -52,27 +41,37 @@ public:
     void setSeparator(const std::string& separator);
     
     /**
-     * @brief Add to the string (given by its ID) the serialized version of the value, at the end.
+     * @brief Add to the string (given by its ID) the sanitized version of the value, at the end.
      * @param ID Serialized string's ID.
      * @param value Value to append to the serialized string.
      */
     void add(const std::string& ID, const std::string& value);
     
     /**
-     * @brief Add to the string (given by its ID) the serialized version of the value at the given index, or at the end.
+     * @brief Add to the string (given by its ID) the sanitized version of the value at the given index, or at the end.
      * @details Same behaviour as add without index if the given slot is higher than the number of slots in the string.
-     * @etails This method have an higher time complexity than the other one since it need to search inside the string.
+     * @details This method have an higher time complexity than the other one in case of insertion inside the string.
      * @param ID Serialized string's ID.
      * @param value Value to insert in the serialized string.
-     * @param slot Slot in which the value should be insert.
+     * @param idx Index at which the value should be insert.
      */
-    void add(const std::string& ID, const std::string& value, size_t slot);
+    void add(const std::string& ID, const std::string& value, size_t idx);
+
+    /**
+     * @brief Edit the string (given by its ID) with the serialized version of the value at the given index.
+     * @details If there is no value at this index, insert the value at the end.
+     * @param ID Serialized string's ID.
+     * @param value Value to insert in the serialized string.
+     * @param idx Index at which the value should be edit.
+     */
+    void edit(const std::string& ID, const std::string& value, size_t idx);
     
     /**
-     * @brief Return the string of the given ID.
+     * @brief Return the serialized string of the given ID.
+     * @warning Build the string with the separator at each run.
      * @param ID Desired serialized string's ID.
      */
-    const std::string& get(const std::string& ID);
+    std::string get(const std::string& ID);
 
     /**
      * @brief Return a vector containing the strings obtained after a split with the separator.
@@ -100,7 +99,7 @@ protected:
      /**
       * Unordered map linking the ID of the serialized string and the serialized string.
       */
-    std::unordered_map<std::string, std::string> serializedStrings;
+    std::unordered_map<std::string, std::vector<std::string>> serializedStrings;
 
 private: 
     Serializer() = default;

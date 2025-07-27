@@ -71,6 +71,11 @@ protected:
      * Log file's stream
      */
     std::ofstream stream;
+
+    /**
+     * Mutex for the log callback
+     */
+    std::shared_mutex mtx;
 };
 
 #endif //_LOGCHANNEL_H

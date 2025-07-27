@@ -183,14 +183,14 @@ public:
      * @param PKFile Path to the public key's file.
      * @param SKFile Path to the secret key's file.
      */
-    void setKeysPaths(const string& PKFile, const string& SKFile);
+    void setKeysPaths(const std::string& PKFile, const std::string& SKFile);
 
     /**
      * @brief Set the server's public key for the [LOCAL] client.
      * @warning Only available for the LOCAL client.
      * @param SPKFile Path to the server's public key file
      */
-    void setServerPKPath(const string& SPKFile);
+    void setServerPKPath(const std::string& SPKFile);
 
 protected: 
     /**

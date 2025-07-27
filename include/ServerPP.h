@@ -39,7 +39,7 @@ public:
      * @param publicKeyFile If different from "", force the use of the given public key.
      * @param privateKeyFile If different from "", force the use of the given private key.
      */
-    ServerPP(std::string address, int port, std::string separator, IP_Type ipType = IP_Type::IPv4, bool useCiphering = true, const string& publicKeyFile = "", const string& privateKeyFile = "");
+    ServerPP(std::string address, int port, std::string separator, IP_Type ipType = IP_Type::IPv4, bool useCiphering = true, const std::string& publicKeyFile = "", const std::string& privateKeyFile = "");
 
     /**
      * @brief Destructor of the ServerPP class.

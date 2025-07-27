@@ -1,0 +1,13 @@
+2025-07-27 11:17:34 [DEBUG] [TCP] Messages of 127.0.0.1:54728 :
+    | discovery
+2025-07-27 11:17:34 [HELPER] List of channels' keys send to 127.0.0.1:54728 : discovery/debugChannel/msgDevelopment/msgGaming/discovery/msgManga/logs/msgBoxing/msgBooks/msgLOTR
+2025-07-27 11:17:37 [DEBUG] [TCP] Messages of 127.0.0.1:54728 :
+    | msgDevelopment
+    | identify
+    | Mark
+2025-07-27 11:17:37 [CONVERSATION] msgDevelopment [IDENTIFY] - 127.0.0.1:54728 as Mark
+2025-07-27 11:17:38 [DEBUG] [UDP] Messages :
+    | msgDevelopment
+    | identifyUDP
+    | Mark
+2025-07-27 11:17:41 [CONVERSATION] msgDevelopment [SEND] - message/SYSTEM : Mark disconnected.
