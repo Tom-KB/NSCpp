@@ -1,5 +1,12 @@
 var searchData=
 [
-  ['today_0',['today',['../class_log_channel.html#a73316f41387359975cb61b22205c6ea0',1,'LogChannel']]],
-  ['type_1',['type',['../struct_client_data.html#a21fb0f64be4b0a4d555aaee7abed86d9',1,'ClientData::type'],['../class_client_p_p.html#a0ab170b363e8839150775aa0186fc770',1,'ClientPP::type']]]
+  ['separator_0',['separator',['../class_serializer.html#a0223ddefca16dc35c5c041f80cf455f6',1,'Serializer']]],
+  ['serializedstrings_1',['serializedStrings',['../class_serializer.html#a49d9d70e08e9ca9fb262e62bfafce3eb',1,'Serializer']]],
+  ['serverpkfile_2',['ServerPKFile',['../class_client_p_p.html#a6767668c2e1ec2dd6f109ed01aca74fc',1,'ClientPP']]],
+  ['skfile_3',['SKFile',['../class_client_p_p.html#a6fc41d364b2e1ef6927edaa65e4cfb7f',1,'ClientPP']]],
+  ['socket_4',['socket',['../struct_client_data.html#a8ed5eccaf159f3050ebf46747edc02bf',1,'ClientData']]],
+  ['state_5',['state',['../class_channel.html#ac2ae0a08b2b5b29a869f1d657548c112',1,'Channel']]],
+  ['stoptag_6',['stopTag',['../class_client_p_p.html#a989cc24683c5daaf470bb1526bc04e9c',1,'ClientPP']]],
+  ['stream_7',['stream',['../class_debug_channel.html#af52ebcedacdbd3bff402df56fd2d087e',1,'DebugChannel::stream'],['../class_log_channel.html#a87266699a6f99137ec61bc35eb6ce014',1,'LogChannel::stream']]],
+  ['symmetriccipher_8',['symmetricCipher',['../class_client_p_p.html#a62331f449b9a048518b36dd3d91da2da',1,'ClientPP']]]
 ];

@@ -9,5 +9,6 @@ var _client_p_p_8h =
     ] ],
     [ "createDataCallback", "_client_p_p_8h.html#ad8484825345570569f60a05cdc632da9", null ],
     [ "createDisconnectionCallback", "_client_p_p_8h.html#a3046ce3c8b674d06eb4c3085bedb3004", null ],
+    [ "domainNameResolution", "_client_p_p_8h.html#acb3094e291cca2dc761f3398e2686f2b", null ],
     [ "sendUDP", "_client_p_p_8h.html#aa5b36b94d72db4af9447f53a13a12832", null ]
 ];

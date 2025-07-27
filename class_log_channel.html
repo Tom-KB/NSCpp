@@ -181,6 +181,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a87266699a6f99137ec61bc35eb6ce014" id="r_a87266699a6f99137ec61bc35eb6ce014"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87266699a6f99137ec61bc35eb6ce014">stream</a></td></tr>
 <tr class="memdesc:a87266699a6f99137ec61bc35eb6ce014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log file's stream.  <br /></td></tr>
 <tr class="separator:a87266699a6f99137ec61bc35eb6ce014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cdf7e2bb47c84dc82297743b1d271ec" id="r_a0cdf7e2bb47c84dc82297743b1d271ec"><td class="memItemLeft" align="right" valign="top">std::shared_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cdf7e2bb47c84dc82297743b1d271ec">mtx</a></td></tr>
+<tr class="memdesc:a0cdf7e2bb47c84dc82297743b1d271ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for the log callback.  <br /></td></tr>
+<tr class="separator:a0cdf7e2bb47c84dc82297743b1d271ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_channel"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_channel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_channel.html">Channel</a></td></tr>
 <tr class="memitem:a14278775f07f135b16eff1dec70d8a19 inherit pro_attribs_class_channel" id="r_a14278775f07f135b16eff1dec70d8a19"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_channel.html#a14278775f07f135b16eff1dec70d8a19">key</a></td></tr>
 <tr class="memdesc:a14278775f07f135b16eff1dec70d8a19 inherit pro_attribs_class_channel"><td class="mdescLeft">&#160;</td><td class="mdescRight">This key must be unique on the server on which it is plugged.  <br /></td></tr>
@@ -194,7 +197,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Project NSCpp. </p>
-<dl class="section author"><dt>Author</dt><dd>TK </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Thomas K/BIDI </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a797d3561d9d4318c32232732a05ecd30" name="a797d3561d9d4318c32232732a05ecd30"></a>
@@ -350,6 +353,30 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0cdf7e2bb47c84dc82297743b1d271ec" name="a0cdf7e2bb47c84dc82297743b1d271ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cdf7e2bb47c84dc82297743b1d271ec">&#9670;&#160;</a></span>mtx</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_mutex LogChannel::mtx</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mutex for the log callback. </p>
+
+</div>
+</div>
 <a id="a5ae5cdbac3b273c28857e00e43226106" name="a5ae5cdbac3b273c28857e00e43226106"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ae5cdbac3b273c28857e00e43226106">&#9670;&#160;</a></span>prefix</h2>
 

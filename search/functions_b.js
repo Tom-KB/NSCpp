@@ -1,18 +1,5 @@
 var searchData=
 [
-  ['sanitizestring_0',['sanitizeString',['../_serializer_8h.html#ac8263c4c213fc3a95ab2a527cf4d6032',1,'Serializer.h']]],
-  ['send_1',['send',['../class_client_p_p.html#a2b4bd5c3e4ba8ebb3f3a8d41dd463150',1,'ClientPP::send()'],['../class_group_manager.html#aa841683b6683803ec7d3701e6bbde875',1,'GroupManager::send()']]],
-  ['sendudp_2',['sendUDP',['../_client_p_p_8h.html#aa5b36b94d72db4af9447f53a13a12832',1,'ClientPP.h']]],
-  ['serverpp_3',['ServerPP',['../class_server_p_p.html#aac922b8a9b3846626a7208b34a849fb3',1,'ServerPP']]],
-  ['setchannelstate_4',['setChannelState',['../class_server_p_p.html#a6c33bede654f75d85c032fdb3f778615',1,'ServerPP']]],
-  ['setkey_5',['setKey',['../class_channel.html#af005421a66b90463e5575ed109233598',1,'Channel']]],
-  ['setkeyspaths_6',['setKeysPaths',['../class_client_p_p.html#a97a684b51e19bd6d36378072224d98fc',1,'ClientPP']]],
-  ['setseparator_7',['setSeparator',['../class_serializer.html#a3e3002c8c1620ed3dd7b5f7cd1e27905',1,'Serializer']]],
-  ['setserverpkpath_8',['setServerPKPath',['../class_client_p_p.html#aff60b256cc5fdf473ee92ae390037ac2',1,'ClientPP']]],
-  ['setsharedsecret_9',['setSharedSecret',['../class_client_p_p.html#a454132ed0bf1991201dbaa40d71f935d',1,'ClientPP']]],
-  ['setstate_10',['setState',['../class_channel.html#ae1d60bc54d2d33ddf979be029745046a',1,'Channel']]],
-  ['split_11',['split',['../class_serializer.html#aede8c4002c0c65f5d62bebf057eb914b',1,'Serializer']]],
-  ['start_12',['start',['../class_client_p_p.html#a48d7c05e303e9048db3b039eed180fae',1,'ClientPP::start()'],['../class_server_p_p.html#a7c9e03a5c74be3fb4fac511e74d0a678',1,'ServerPP::start()']]],
-  ['stop_13',['stop',['../class_client_p_p.html#ae69ccfb0663dec352bd7860a87966548',1,'ClientPP::stop()'],['../class_server_p_p.html#a809b92d62e80599ab196463d485115fe',1,'ServerPP::stop()']]],
-  ['subscribe_14',['subscribe',['../class_group_manager.html#a3d47a4766957d70cd8b7e77346aab053',1,'GroupManager']]]
+  ['removechannelkey_0',['removeChannelKey',['../class_helper_channel.html#a1b8c87c9beffff060311f3d0d52421a1',1,'HelperChannel']]],
+  ['run_1',['run',['../class_channel.html#a4b8fa3597e5d8b30f3d5f13c1a4d5dcf',1,'Channel::run()'],['../class_client_p_p.html#ab3e5685553ef84dbd14e6f743bc824db',1,'ClientPP::run()'],['../class_debug_channel.html#acf6ae9a35f2608c051f6dc41ea687f02',1,'DebugChannel::run()'],['../class_helper_channel.html#a1e4835376c023c28b04af93613a12064',1,'HelperChannel::run()'],['../class_log_channel.html#a1bcae6d3fd54c34de9c5ac72c7ec4da0',1,'LogChannel::run()']]]
 ];

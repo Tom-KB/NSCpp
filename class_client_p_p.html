@@ -159,12 +159,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3ac6392e494dedac92a904506026cd6" id="r_ab3ac6392e494dedac92a904506026cd6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3ac6392e494dedac92a904506026cd6">decrypt</a> (const std::string &amp;cipher)</td></tr>
 <tr class="memdesc:ab3ac6392e494dedac92a904506026cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the decrypted string of the given cipher.  <br /></td></tr>
 <tr class="separator:ab3ac6392e494dedac92a904506026cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97a684b51e19bd6d36378072224d98fc" id="r_a97a684b51e19bd6d36378072224d98fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97a684b51e19bd6d36378072224d98fc">setKeysPaths</a> (const string &amp;<a class="el" href="#a75421d3965e55c29781941bf63ad378a">PKFile</a>, const string &amp;<a class="el" href="#a6fc41d364b2e1ef6927edaa65e4cfb7f">SKFile</a>)</td></tr>
-<tr class="memdesc:a97a684b51e19bd6d36378072224d98fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the public and private keys for the [LOCAL] client.  <br /></td></tr>
-<tr class="separator:a97a684b51e19bd6d36378072224d98fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff60b256cc5fdf473ee92ae390037ac2" id="r_aff60b256cc5fdf473ee92ae390037ac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff60b256cc5fdf473ee92ae390037ac2">setServerPKPath</a> (const string &amp;SPKFile)</td></tr>
-<tr class="memdesc:aff60b256cc5fdf473ee92ae390037ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the server's public key for the [LOCAL] client.  <br /></td></tr>
-<tr class="separator:aff60b256cc5fdf473ee92ae390037ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb71e6444f11635633d69fb70838e1b" id="r_aabb71e6444f11635633d69fb70838e1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabb71e6444f11635633d69fb70838e1b">setKeysPaths</a> (const std::string &amp;<a class="el" href="#a75421d3965e55c29781941bf63ad378a">PKFile</a>, const std::string &amp;<a class="el" href="#a6fc41d364b2e1ef6927edaa65e4cfb7f">SKFile</a>)</td></tr>
+<tr class="memdesc:aabb71e6444f11635633d69fb70838e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the public and private keys for the [LOCAL] client.  <br /></td></tr>
+<tr class="separator:aabb71e6444f11635633d69fb70838e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f396ce3e11402b4cc61cf3fc78ca1f" id="r_a17f396ce3e11402b4cc61cf3fc78ca1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17f396ce3e11402b4cc61cf3fc78ca1f">setServerPKPath</a> (const std::string &amp;SPKFile)</td></tr>
+<tr class="memdesc:a17f396ce3e11402b4cc61cf3fc78ca1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the server's public key for the [LOCAL] client.  <br /></td></tr>
+<tr class="separator:a17f396ce3e11402b4cc61cf3fc78ca1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -581,8 +581,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a97a684b51e19bd6d36378072224d98fc" name="a97a684b51e19bd6d36378072224d98fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97a684b51e19bd6d36378072224d98fc">&#9670;&#160;</a></span>setKeysPaths()</h2>
+<a id="aabb71e6444f11635633d69fb70838e1b" name="aabb71e6444f11635633d69fb70838e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb71e6444f11635633d69fb70838e1b">&#9670;&#160;</a></span>setKeysPaths()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,12 +590,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void ClientPP::setKeysPaths </td>
           <td>(</td>
-          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>PKFile</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>PKFile</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>SKFile</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>SKFile</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -612,8 +612,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aff60b256cc5fdf473ee92ae390037ac2" name="aff60b256cc5fdf473ee92ae390037ac2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff60b256cc5fdf473ee92ae390037ac2">&#9670;&#160;</a></span>setServerPKPath()</h2>
+<a id="a17f396ce3e11402b4cc61cf3fc78ca1f" name="a17f396ce3e11402b4cc61cf3fc78ca1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17f396ce3e11402b4cc61cf3fc78ca1f">&#9670;&#160;</a></span>setServerPKPath()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -621,7 +621,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void ClientPP::setServerPKPath </td>
           <td>(</td>
-          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>SPKFile</em></span></td><td>)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>SPKFile</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

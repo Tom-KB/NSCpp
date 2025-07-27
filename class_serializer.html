@@ -124,14 +124,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3e3002c8c1620ed3dd7b5f7cd1e27905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the separator of the <a class="el" href="class_serializer.html">Serializer</a>.  <br /></td></tr>
 <tr class="separator:a3e3002c8c1620ed3dd7b5f7cd1e27905"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96a4fb897dcd2a7f807b255731d2d41d" id="r_a96a4fb897dcd2a7f807b255731d2d41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96a4fb897dcd2a7f807b255731d2d41d">add</a> (const std::string &amp;ID, const std::string &amp;value)</td></tr>
-<tr class="memdesc:a96a4fb897dcd2a7f807b255731d2d41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add to the string (given by its ID) the serialized version of the value, at the end.  <br /></td></tr>
+<tr class="memdesc:a96a4fb897dcd2a7f807b255731d2d41d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add to the string (given by its ID) the sanitized version of the value, at the end.  <br /></td></tr>
 <tr class="separator:a96a4fb897dcd2a7f807b255731d2d41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac853281adee779cf6a9d41bc15696541" id="r_ac853281adee779cf6a9d41bc15696541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac853281adee779cf6a9d41bc15696541">add</a> (const std::string &amp;ID, const std::string &amp;value, size_t slot)</td></tr>
-<tr class="memdesc:ac853281adee779cf6a9d41bc15696541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add to the string (given by its ID) the serialized version of the value at the given index, or at the end.  <br /></td></tr>
-<tr class="separator:ac853281adee779cf6a9d41bc15696541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c752414ca712459f8f98b8f9a9a4bb7" id="r_a8c752414ca712459f8f98b8f9a9a4bb7"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c752414ca712459f8f98b8f9a9a4bb7">get</a> (const std::string &amp;ID)</td></tr>
-<tr class="memdesc:a8c752414ca712459f8f98b8f9a9a4bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the string of the given ID.  <br /></td></tr>
-<tr class="separator:a8c752414ca712459f8f98b8f9a9a4bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af26fb1cb25aa34ea04ca13e7fb2ba96b" id="r_af26fb1cb25aa34ea04ca13e7fb2ba96b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af26fb1cb25aa34ea04ca13e7fb2ba96b">add</a> (const std::string &amp;ID, const std::string &amp;value, size_t idx)</td></tr>
+<tr class="memdesc:af26fb1cb25aa34ea04ca13e7fb2ba96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add to the string (given by its ID) the sanitized version of the value at the given index, or at the end.  <br /></td></tr>
+<tr class="separator:af26fb1cb25aa34ea04ca13e7fb2ba96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe47b6c78f31bfe7124aafbe28f84ee9" id="r_afe47b6c78f31bfe7124aafbe28f84ee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe47b6c78f31bfe7124aafbe28f84ee9">edit</a> (const std::string &amp;ID, const std::string &amp;value, size_t idx)</td></tr>
+<tr class="memdesc:afe47b6c78f31bfe7124aafbe28f84ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edit the string (given by its ID) with the serialized version of the value at the given index.  <br /></td></tr>
+<tr class="separator:afe47b6c78f31bfe7124aafbe28f84ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c579dd65a54a838735a1db08339264" id="r_a52c579dd65a54a838735a1db08339264"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52c579dd65a54a838735a1db08339264">get</a> (const std::string &amp;ID)</td></tr>
+<tr class="memdesc:a52c579dd65a54a838735a1db08339264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the serialized string of the given ID.  <br /></td></tr>
+<tr class="separator:a52c579dd65a54a838735a1db08339264"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aede8c4002c0c65f5d62bebf057eb914b" id="r_aede8c4002c0c65f5d62bebf057eb914b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aede8c4002c0c65f5d62bebf057eb914b">split</a> (const std::string &amp;str)</td></tr>
 <tr class="memdesc:aede8c4002c0c65f5d62bebf057eb914b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a vector containing the strings obtained after a split with the separator.  <br /></td></tr>
 <tr class="separator:aede8c4002c0c65f5d62bebf057eb914b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,9 +153,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a0223ddefca16dc35c5c041f80cf455f6" id="r_a0223ddefca16dc35c5c041f80cf455f6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0223ddefca16dc35c5c041f80cf455f6">separator</a></td></tr>
 <tr class="memdesc:a0223ddefca16dc35c5c041f80cf455f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This string virtually divide the serialized strings.  <br /></td></tr>
 <tr class="separator:a0223ddefca16dc35c5c041f80cf455f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7714da12b19ec36689865cab0e07758" id="r_af7714da12b19ec36689865cab0e07758"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7714da12b19ec36689865cab0e07758">serializedStrings</a></td></tr>
-<tr class="memdesc:af7714da12b19ec36689865cab0e07758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unordered map linking the ID of the serialized string and the serialized string.  <br /></td></tr>
-<tr class="separator:af7714da12b19ec36689865cab0e07758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d9d70e08e9ca9fb262e62bfafce3eb" id="r_a49d9d70e08e9ca9fb262e62bfafce3eb"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::vector&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49d9d70e08e9ca9fb262e62bfafce3eb">serializedStrings</a></td></tr>
+<tr class="memdesc:a49d9d70e08e9ca9fb262e62bfafce3eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unordered map linking the ID of the serialized string and the serialized string.  <br /></td></tr>
+<tr class="separator:a49d9d70e08e9ca9fb262e62bfafce3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a96a4fb897dcd2a7f807b255731d2d41d" name="a96a4fb897dcd2a7f807b255731d2d41d"></a>
@@ -174,7 +177,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add to the string (given by its ID) the serialized version of the value, at the end. </p>
+<p>Add to the string (given by its ID) the sanitized version of the value, at the end. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ID</td><td>Serialized string's ID. </td></tr>
@@ -185,8 +188,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac853281adee779cf6a9d41bc15696541" name="ac853281adee779cf6a9d41bc15696541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac853281adee779cf6a9d41bc15696541">&#9670;&#160;</a></span>add() <span class="overload">[2/2]</span></h2>
+<a id="af26fb1cb25aa34ea04ca13e7fb2ba96b" name="af26fb1cb25aa34ea04ca13e7fb2ba96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26fb1cb25aa34ea04ca13e7fb2ba96b">&#9670;&#160;</a></span>add() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,17 +207,18 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add to the string (given by its ID) the serialized version of the value at the given index, or at the end. </p>
-<p>Same behaviour as add without index if the given slot is higher than the number of slots in the string. @etails This method have an higher time complexity than the other one since it need to search inside the string. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Add to the string (given by its ID) the sanitized version of the value at the given index, or at the end. </p>
+<p>Same behaviour as add without index if the given slot is higher than the number of slots in the string.</p>
+<p>This method have an higher time complexity than the other one in case of insertion inside the string. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ID</td><td>Serialized string's ID. </td></tr>
     <tr><td class="paramname">value</td><td>Value to insert in the serialized string. </td></tr>
-    <tr><td class="paramname">slot</td><td>Slot in which the value should be insert. </td></tr>
+    <tr><td class="paramname">idx</td><td>Index at which the value should be insert. </td></tr>
   </table>
   </dd>
 </dl>
@@ -246,14 +250,50 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8c752414ca712459f8f98b8f9a9a4bb7" name="a8c752414ca712459f8f98b8f9a9a4bb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c752414ca712459f8f98b8f9a9a4bb7">&#9670;&#160;</a></span>get()</h2>
+<a id="afe47b6c78f31bfe7124aafbe28f84ee9" name="afe47b6c78f31bfe7124aafbe28f84ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe47b6c78f31bfe7124aafbe28f84ee9">&#9670;&#160;</a></span>edit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string &amp; Serializer::get </td>
+          <td class="memname">void Serializer::edit </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>ID</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Edit the string (given by its ID) with the serialized version of the value at the given index. </p>
+<p>If there is no value at this index, insert the value at the end. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ID</td><td>Serialized string's ID. </td></tr>
+    <tr><td class="paramname">value</td><td>Value to insert in the serialized string. </td></tr>
+    <tr><td class="paramname">idx</td><td>Index at which the value should be edit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a52c579dd65a54a838735a1db08339264" name="a52c579dd65a54a838735a1db08339264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c579dd65a54a838735a1db08339264">&#9670;&#160;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Serializer::get </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>ID</em></span></td><td>)</td>
           <td></td>
@@ -261,7 +301,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the string of the given ID. </p>
+<p>Return the serialized string of the given ID. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Build the string with the separator at each run. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ID</td><td>Desired serialized string's ID. </td></tr>
@@ -394,8 +435,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af7714da12b19ec36689865cab0e07758" name="af7714da12b19ec36689865cab0e07758"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7714da12b19ec36689865cab0e07758">&#9670;&#160;</a></span>serializedStrings</h2>
+<a id="a49d9d70e08e9ca9fb262e62bfafce3eb" name="a49d9d70e08e9ca9fb262e62bfafce3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d9d70e08e9ca9fb262e62bfafce3eb">&#9670;&#160;</a></span>serializedStrings</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +445,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;std::string, std::string&gt; Serializer::serializedStrings</td>
+          <td class="memname">std::unordered_map&lt;std::string, std::vector&lt;std::string&gt; &gt; Serializer::serializedStrings</td>
         </tr>
       </table>
   </td>

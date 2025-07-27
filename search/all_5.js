@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get_0',['get',['../class_serializer.html#a8c752414ca712459f8f98b8f9a9a4bb7',1,'Serializer']]],
+  ['get_0',['get',['../class_serializer.html#a52c579dd65a54a838735a1db08339264',1,'Serializer']]],
   ['getchannelkeys_1',['getChannelKeys',['../class_server_p_p.html#ab6834629fafd46a1d9eeaa6ffddd1d0a',1,'ServerPP']]],
   ['getclientstruct_2',['getClientStruct',['../class_client_p_p.html#a4f83e026b1c62e86f903164fdd4d70ca',1,'ClientPP']]],
   ['gethavesecret_3',['getHaveSecret',['../class_client_p_p.html#a3c3c6c056003332c1893401edd39276e',1,'ClientPP']]],

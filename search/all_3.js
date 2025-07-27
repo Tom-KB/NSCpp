@@ -7,5 +7,6 @@ var searchData=
   ['debugchannel_4',['DebugChannel',['../class_debug_channel.html',1,'DebugChannel'],['../class_debug_channel.html#a1f1749ba0b57631436aafaf648c4fd1d',1,'DebugChannel::DebugChannel()']]],
   ['debugchannel_2eh_5',['DebugChannel.h',['../_debug_channel_8h.html',1,'']]],
   ['decrypt_6',['decrypt',['../class_client_p_p.html#ab3ac6392e494dedac92a904506026cd6',1,'ClientPP']]],
-  ['disconncb_7',['disconnCB',['../class_client_p_p.html#a83752fef592f2548044a6583f69612d0',1,'ClientPP']]]
+  ['disconncb_7',['disconnCB',['../class_client_p_p.html#a83752fef592f2548044a6583f69612d0',1,'ClientPP']]],
+  ['domainnameresolution_8',['domainNameResolution',['../_client_p_p_8h.html#acb3094e291cca2dc761f3398e2686f2b',1,'ClientPP.h']]]
 ];

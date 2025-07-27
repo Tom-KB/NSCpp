@@ -1,6 +1,6 @@
 var class_server_p_p =
 [
-    [ "ServerPP", "class_server_p_p.html#aac922b8a9b3846626a7208b34a849fb3", null ],
+    [ "ServerPP", "class_server_p_p.html#aed0abf563a2715544ba01530f908dab3", null ],
     [ "~ServerPP", "class_server_p_p.html#a54f28dad0210ebd7ce187d6fdbecda2f", null ],
     [ "getChannelKeys", "class_server_p_p.html#ab6834629fafd46a1d9eeaa6ffddd1d0a", null ],
     [ "kicked", "class_server_p_p.html#ac675f2c5a00687d174cd7c19269d7df0", null ],

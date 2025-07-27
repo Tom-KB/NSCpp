@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['init_0',['init',['../class_client_p_p.html#a205a12def738f23ad49e11938724f1ea',1,'ClientPP']]],
-  ['insertat_1',['insertAt',['../_serializer_8h.html#a130934716a5e2871c7e5b2fd783a27e0',1,'Serializer.h']]]
+  ['hastype_0',['hasType',['../_channel_8h.html#aaac996fd43429b8550bfb37f6730d106',1,'Channel.h']]],
+  ['helperchannel_1',['HelperChannel',['../class_helper_channel.html#a38ca964ad955cb910cf46a63897b01ea',1,'HelperChannel']]]
 ];
