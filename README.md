@@ -47,7 +47,8 @@ Here’s a list of what NSC++ offers:
 
 ## Architecture
 Here is the class diagram I designed and used to build this project :
-<img width="1780" height="1295" alt="image" src="https://github.com/user-attachments/assets/9d071d71-64fc-4a37-8288-5d528017b014" />
+<img width="2461" height="1526" alt="image" src="https://github.com/user-attachments/assets/61bbb2f8-9f08-47a7-9888-17a9ae37d65d" />
+<img width="2699" height="642" alt="image" src="https://github.com/user-attachments/assets/0eddc3db-0b31-435d-b281-68c4e5e7d5fb" />
 **NB**: There are some differences between this diagram and the final implementation.  
 During development, I made a few *implementation choices* that aren’t reflected in the diagram.
 
