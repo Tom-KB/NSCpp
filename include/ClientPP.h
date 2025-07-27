@@ -1,6 +1,6 @@
 /**
  * Project NSCpp
- * @author TK
+ * @author Thomas K/BIDI
  * @version 2.0
  */
 
@@ -79,6 +79,11 @@ auto createDisconnectionCallback(T* ptr, void (T::* method)()) {
  * @see ClientPP::send To send messages from the client side
  */
 void sendUDP(SOCKET* serverSocket, SIN* addr, IP_Type ipType, std::string message);
+
+/**
+ * @brief Wrapper of the resolveDomainName function of NSC, with strings.
+ */
+std::string domainNameResolution(std::string domainName);
 
 class ClientPP {
 public:

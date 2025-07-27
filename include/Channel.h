@@ -1,7 +1,7 @@
 /**
  * @file Channel.h 
  * Project NSCpp
- * @author TK
+ * @author Thomas K/BIDI
  * @version 2.0
  */
 

@@ -1,6 +1,6 @@
 /**
  * Project NSCpp
- * @author TK
+ * @author Thomas K/BIDI
  * @version 2.0
  */
 
@@ -23,7 +23,6 @@
   * @details You can plugged Channel to which the event information will be propagated according to the given type of these Channel.
   * @details Ciphering is activated by default and a key exchange will be made with the Client upon connection.
   */
-
 
 class ServerPP {
 public:  
