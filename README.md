@@ -70,6 +70,9 @@ Below is a brief description of each class, along with a link to its detailed re
 ### Key Exchange & Symmetric ciphering
 <img width="1609" height="745" alt="1" src="https://github.com/user-attachments/assets/0212c373-5d3d-4446-8f87-d20e10cee071" />
 
+**Disclaimer**: As you can see, this configuration is vulnerable to a partial **Man-in-the-Middle (MITM)** attack, assuming the server’s public key cannot be altered. You'll need to implement proper verification for that.   
+One approach is to use *Trust On First Use (TOFU)*, potentially combined with a login system to authenticate clients. I’ll upload my implementation of this to the Channels repository.
+
 ### Channel system
 <img width="1135" height="810" alt="2" src="https://github.com/user-attachments/assets/6fb78927-0838-4758-a7ec-6face87d061a" />
 
