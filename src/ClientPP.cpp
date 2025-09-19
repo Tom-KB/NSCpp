@@ -14,7 +14,7 @@ ClientPP::ClientPP(Client cInfo) : clientUDP{}, type(type), isDisconnected(false
         clientTCP->socket = cInfo.socket;
         clientTCP->connType = cInfo.connType;
         clientTCP->ipType = cInfo.ipType;
-        ipType = static_cast<IP_Type>(clientTCP->ipType);
+        ipType = static_cast<NSC_IP_Type>(clientTCP->ipType);
         clientTCP->sin = cInfo.sin;
         init();
     }
@@ -24,7 +24,7 @@ ClientPP::ClientPP(Client cInfo) : clientUDP{}, type(type), isDisconnected(false
 }
 
 
-ClientPP::ClientPP(const string& address, int port, const string& separator, IP_Type ipType, bool useCiphering) : clientTCP{}, clientUDP{}, address(address), port(port), ipType(ipType), type(ClientType::LOCAL), isDisconnected(true), haveSecret(false), useCiphering(useCiphering) {
+ClientPP::ClientPP(const string& address, int port, const string& separator, NSC_IP_Type ipType, bool useCiphering) : clientTCP{}, clientUDP{}, address(address), port(port), ipType(ipType), type(ClientType::LOCAL), isDisconnected(true), haveSecret(false), useCiphering(useCiphering) {
     Serializer& serializer = Serializer::getInstance();
     serializer.setSeparator(separator);
 }
@@ -75,12 +75,12 @@ void ClientPP::init() {
     }
 }
 
-void ClientPP::send(const string& data, ConnType connType) {
+void ClientPP::send(const string& data, NSC_ConnType connType) {
     if (isDisconnected) return;
     string message = data;
     switch (clientTCP->ipType) {
     case IPv4:
-        if (connType == ConnType::TCP) {
+        if (connType == NSC_ConnType::TCP) {
             if (useCiphering && haveSecret) message = symmetricCipher->encrypt(data);
             printf("Message here : %s\n", message.c_str());
             sendMessage(&clientTCP->socket, message.c_str(), static_cast<uint32_t>(message.size()), connType, clientTCP->ipType, &clientTCP->sin);
@@ -91,7 +91,7 @@ void ClientPP::send(const string& data, ConnType connType) {
         }
         break;
     case IPv6:
-        if (connType == ConnType::TCP) {
+        if (connType == NSC_ConnType::TCP) {
             if (useCiphering && haveSecret) message = symmetricCipher->encrypt(data);
             sendMessage(&clientTCP->socket, message.c_str(), static_cast<uint32_t>(message.size()), connType, clientTCP->ipType, &clientTCP->sin);
         }
@@ -126,8 +126,8 @@ void ClientPP::start() {
     startup();
 #endif
 
-    clientTCP = createClient(address.c_str(), port, ConnType::TCP, ipType); // Update that later (IPv6 + UDP)
-    clientUDP = createClient(address.c_str(), port, ConnType::UDP, ipType);
+    clientTCP = createClient(address.c_str(), port, NSC_ConnType::TCP, ipType); // Update that later (IPv6 + UDP)
+    clientUDP = createClient(address.c_str(), port, NSC_ConnType::UDP, ipType);
     if (clientTCP == nullptr || clientUDP == nullptr) {
         throw runtime_error("Error when creating the client.");
     }
@@ -205,23 +205,23 @@ void ClientPP::run(std::stop_token st) {
         ClientEventsList* eventsTCP = clientListen(clientTCP);
         ClientEventsList* eventsUDP = clientListen(clientUDP);
         string key;
-        ConnType connType = ConnType::UDP;
+        NSC_ConnType connType = NSC_ConnType::UDP;
         for (auto events : { eventsTCP, eventsUDP }) {
-            connType = connType == ConnType::UDP ? ConnType::TCP : ConnType::UDP; // Inverter
+            connType = connType == NSC_ConnType::UDP ? NSC_ConnType::TCP : NSC_ConnType::UDP; // Inverter
             for (int i = 0; i < events->numEvents; i++) {
                 ClientEvent& event = events->events[i];
-                if (event.type == EventType::Disconnection) {
+                if (event.type == NSC_EventType::Disconnection) {
                     for (const auto& it : disconnCB) {
                         if (it) it();
                     }
                     stopTag.request_stop();
                 }
-                else if (event.type == EventType::DataReceived) {
+                else if (event.type == NSC_EventType::DataReceived) {
                     string data(event.data, event.dataSize);
                     Serializer& serializer = Serializer::getInstance();
                     vector<string> message;
 
-                    if (connType == ConnType::TCP && useCiphering) {
+                    if (connType == NSC_ConnType::TCP && useCiphering) {
                         string decrypted;
                         try {
                             decrypted = this->decrypt(data);
@@ -259,8 +259,8 @@ void ClientPP::run(std::stop_token st) {
     }
 }
 
-void sendUDP(SOCKET* serverSocket, SIN* addr, IP_Type ipType, string message) {
-    sendMessage(serverSocket, message.c_str(), static_cast<uint32_t>(message.size()), ConnType::UDP, ipType, addr);
+void sendUDP(SOCKET* serverSocket, SIN* addr, NSC_IP_Type ipType, string message) {
+    sendMessage(serverSocket, message.c_str(), static_cast<uint32_t>(message.size()), NSC_ConnType::UDP, ipType, addr);
 }
 
 std::string domainNameResolution(std::string domainName) {

@@ -41,15 +41,15 @@ void DebugChannel::run(stop_token st) {
 			}
 			else if (clientData.type == DataReceived) {
 				switch (clientData.connType) {
-					case ConnType::TCP:
+					case NSC_ConnType::TCP:
 						ss << "[TCP] ";
 						break;
-					case ConnType::UDP:
+					case NSC_ConnType::UDP:
 						ss << "[UDP] ";
 						break;
 				}
 				ss << "Messages";
-				if (clientData.connType == ConnType::TCP) ss << " of " << clientData.client->getID();
+				if (clientData.connType == NSC_ConnType::TCP) ss << " of " << clientData.client->getID();
 				ss << " :" << endl;
 				for (int i = 0; i < clientData.data.size(); ++i) {
 					ss << "    | " << clientData.data[i] << endl;
@@ -59,11 +59,11 @@ void DebugChannel::run(stop_token st) {
 
 				if (echo) {
 					switch (clientData.connType) {
-						case ConnType::TCP:
-							clientData.client->send(ss.str(), ConnType::TCP);
+						case NSC_ConnType::TCP:
+							clientData.client->send(ss.str(), NSC_ConnType::TCP);
 							if (logging) groupManager.send(logKey, "[DEBUG] [TCP] ECHO : " + ss.str());
 							break;
-						case ConnType::UDP:
+						case NSC_ConnType::UDP:
 							sendUDP(&clientData.socket, &clientData.addr, clientData.ipType, ss.str());
 							if (logging) groupManager.send(logKey, "[DEBUG] [UDP] ECHO : " + ss.str());
 							break;

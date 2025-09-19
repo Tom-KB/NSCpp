@@ -29,7 +29,7 @@ void HelperChannel::run(stop_token st) {
 		if (available()) {
 			serializer.clear(key);
 			ClientData clientData = pull();
-			if (clientData.connType != ConnType::TCP) continue; // Skip UDP
+			if (clientData.connType != NSC_ConnType::TCP) continue; // Skip UDP
 
 			serializer.add(key, key);
 			if (clientData.type == DataReceived) {

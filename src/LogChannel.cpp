@@ -47,7 +47,7 @@ void LogChannel::run(stop_token st) {
 			}
 			else if (clientData.type == DataReceived) {
 				ss << " [DATA] ";
-				if (clientData.connType == ConnType::TCP) ss << clientData.client->getID() << " ";
+				if (clientData.connType == NSC_ConnType::TCP) ss << clientData.client->getID() << " ";
 				ss << ":" << endl;
 
 				for (int i = 0; i < clientData.data.size(); ++i) {

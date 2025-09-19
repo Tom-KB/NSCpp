@@ -8,7 +8,7 @@
 
 using namespace std;
 
-ServerPP::ServerPP(string address, int port, string separator, IP_Type ipType, bool useCiphering, const string& publicKeyFile, const string& privateKeyFile) : serverTCP{}, serverUDP{}, address(address), port(port), separator(separator), ipType(ipType), useCiphering(useCiphering) {
+ServerPP::ServerPP(string address, int port, string separator, NSC_IP_Type ipType, bool useCiphering, const string& publicKeyFile, const string& privateKeyFile) : serverTCP{}, serverUDP{}, address(address), port(port), separator(separator), ipType(ipType), useCiphering(useCiphering) {
     Serializer& serializer = Serializer::getInstance();
     serializer.setSeparator(separator);
     GroupManager& groupManager = GroupManager::getInstance();
@@ -36,12 +36,12 @@ ServerPP::~ServerPP() {
 ;}
 
 void ServerPP::run(stop_token st) {
-    ConnType connType = ConnType::UDP;
+    NSC_ConnType connType = NSC_ConnType::UDP;
     while (!st.stop_requested()) {
         ServerEventsList* eventsTCP = serverListen(serverTCP);
         ServerEventsList* eventsUDP = serverListen(serverUDP);
         for (auto events : { eventsTCP, eventsUDP }) {
-            connType = connType == ConnType::UDP ? ConnType::TCP : ConnType::UDP; // Inverter
+            connType = connType == NSC_ConnType::UDP ? NSC_ConnType::TCP : NSC_ConnType::UDP; // Inverter
             for (int i = 0; i < events->numEvents; ++i) {
                 ServerEvent& event = events->events[i];
                 process(event, connType);
@@ -58,8 +58,8 @@ void ServerPP::start() {
     #if defined (_WIN32)
         startup();
     #endif
-    serverTCP = createServer(address.data(), port, ConnType::TCP, ipType);
-    serverUDP = createServer(address.data(), port, ConnType::UDP, ipType);
+    serverTCP = createServer(address.data(), port, NSC_ConnType::TCP, ipType);
+    serverUDP = createServer(address.data(), port, NSC_ConnType::UDP, ipType);
 
     if (serverTCP == NULL) {
         throw runtime_error("Can't create the server TCP");
@@ -182,7 +182,7 @@ void ServerPP::kicked(const std::string& clientID) {
             }
         }
 
-        ClientData clientData{ EventType::Disconnection, ConnType::TCP, static_cast<IP_Type>(serverTCP->ipType), NULL, clientData.client->getClientStruct().sin, it->second}; // Default ClientData
+        ClientData clientData{ NSC_EventType::Disconnection, NSC_ConnType::TCP, static_cast<NSC_IP_Type>(serverTCP->ipType), NULL, clientData.client->getClientStruct().sin, it->second}; // Default ClientData
         clientData.data.push_back(ss.str());
             
         // Distribution
@@ -198,12 +198,12 @@ void ServerPP::kicked(const std::string& clientID) {
     }
 }
 
-void ServerPP::process(ServerEvent& event, const ConnType& connType) {
+void ServerPP::process(ServerEvent& event, const NSC_ConnType& connType) {
     stringstream ss;
     
     // Used to select which type of channels are concerned by the distribution
     string key{};
-    ClientData clientData = { static_cast<EventType>(event.type), connType, static_cast<IP_Type>(event.ipType), event.socket, event.sin, nullptr }; // Default ClientData
+    ClientData clientData = { static_cast<NSC_EventType>(event.type), connType, static_cast<NSC_IP_Type>(event.ipType), event.socket, event.sin, nullptr }; // Default ClientData
     
     // Gather the clients information
     char ip[INET6_ADDRSTRLEN];
@@ -216,7 +216,7 @@ void ServerPP::process(ServerEvent& event, const ConnType& connType) {
         break;
     }
 
-    if (event.type == EventType::Connection) {
+    if (event.type == NSC_EventType::Connection) {
         // Handle the client connection
         Client clientStruct{};
         clientStruct.socket = event.socket;
@@ -242,7 +242,7 @@ void ServerPP::process(ServerEvent& event, const ConnType& connType) {
             }
         }
     }
-    else if (event.type == EventType::Disconnection) {
+    else if (event.type == NSC_EventType::Disconnection) {
         // Remove the client
         auto it = clients.find(ss.str());
         clientData.client = it->second;
@@ -260,10 +260,10 @@ void ServerPP::process(ServerEvent& event, const ConnType& connType) {
             }
         }
     }
-    else if (event.type == EventType::DataReceived) {
+    else if (event.type == NSC_EventType::DataReceived) {
         // Data processing
         // This is the case where the key is used to find the channel
-        if (connType == ConnType::TCP) {
+        if (connType == NSC_ConnType::TCP) {
             auto it = clients.find(ss.str());
             if (it == clients.end()) return; // Invalid client
             clientData.client = it->second;
@@ -277,7 +277,7 @@ void ServerPP::process(ServerEvent& event, const ConnType& connType) {
         string data(event.data, event.dataSize);
         printf("%s\n", data.c_str());
 
-        if (connType == ConnType::TCP && !clientData.client->getHaveSecret() && useCiphering) {
+        if (connType == NSC_ConnType::TCP && !clientData.client->getHaveSecret() && useCiphering) {
             // This messaged is supposed to be the client's public key
             message = serializer.split(data);
             if (message.size() > 1) {
@@ -288,7 +288,7 @@ void ServerPP::process(ServerEvent& event, const ConnType& connType) {
             return; // We do not share this message further
         }
         // In this case the client is supposed to have the shared secret, we have to decrypt everything
-        if (connType == ConnType::TCP && useCiphering) {
+        if (connType == NSC_ConnType::TCP && useCiphering) {
             string decrypted;
             try {
                 decrypted = clientData.client->decrypt(data);

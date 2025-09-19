@@ -33,12 +33,12 @@ public:
      * @param address Address used for the server's creation.
      * @param port Port used for the server's creation.
      * @param separator Separator used during this session.
-     * @param ipType IP type used by this server (IPv4 or IPv6) (default : IP_Type::IPv4)
+     * @param ipType IP type used by this server (IPv4 or IPv6) (default : NSC_IP_Type::IPv4)
      * @param useCiphering Tells the server if you want to use ciphering or not (default : true)
      * @param publicKeyFile If different from "", force the use of the given public key.
      * @param privateKeyFile If different from "", force the use of the given private key.
      */
-    ServerPP(std::string address, int port, std::string separator, IP_Type ipType = IP_Type::IPv4, bool useCiphering = true, const std::string& publicKeyFile = "", const std::string& privateKeyFile = "");
+    ServerPP(std::string address, int port, std::string separator, NSC_IP_Type ipType = NSC_IP_Type::IPv4, bool useCiphering = true, const std::string& publicKeyFile = "", const std::string& privateKeyFile = "");
 
     /**
      * @brief Destructor of the ServerPP class.
@@ -145,7 +145,7 @@ private:
     int port;
 
     /// Server's IP type (IPv4 or IPv6)
-    IP_Type ipType;
+    NSC_IP_Type ipType;
     
     /**
      * Separator of the messages for this server. 
@@ -169,7 +169,7 @@ private:
      * @param event ServerEvent& structure which holds an event's information.
      * @param connType Give the information about which type of communication is used (TCP or UDP).
      */
-    void process(ServerEvent& event, const ConnType& connType);
+    void process(ServerEvent& event, const NSC_ConnType& connType);
 
     /**
      * @brief Main loop of the server, it listens to the events and call the process method on them.

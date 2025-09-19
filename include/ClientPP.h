@@ -42,11 +42,11 @@ class ClientPP;
 /// Structure which hold the Client's Data after an event.
 typedef struct ClientData {
     /// Type of the event : Connection, Disconnection, DataReceived.
-    EventType type;
+    NSC_EventType type;
     /// Connection type of this event : TCP or UDP.
-    ConnType connType;
+    NSC_ConnType connType;
     /// IP type : IPv4 or IPv6.
-    IP_Type ipType;
+    NSC_IP_Type ipType;
     /// In TCP -> Client's socket; in UDP -> Server's socket.
     SOCKET socket;
     /// Client's address.
@@ -78,7 +78,7 @@ auto createDisconnectionCallback(T* ptr, void (T::* method)()) {
  * @details Should be used on the server-side.
  * @see ClientPP::send To send messages from the client side
  */
-void sendUDP(SOCKET* serverSocket, SIN* addr, IP_Type ipType, std::string message);
+void sendUDP(SOCKET* serverSocket, SIN* addr, NSC_IP_Type ipType, std::string message);
 
 /**
  * @brief Wrapper of the resolveDomainName function of NSC, with strings.
@@ -101,7 +101,7 @@ public:
      * @param ipType IP type (IPv4 or IPv6) of this connection.
      * @param useCiphering Indication about the usage of ciphering in this session.
      */
-    ClientPP(const std::string& address, int port, const std::string& separator, IP_Type ipType = IP_Type::IPv4, bool useCiphering = true);
+    ClientPP(const std::string& address, int port, const std::string& separator, NSC_IP_Type ipType = NSC_IP_Type::IPv4, bool useCiphering = true);
 
     /**
      * @brief Destructor of the ClientPP class.
@@ -113,9 +113,9 @@ public:
      * @warning For REMOTE clients, don't use this method for UDP communications.
      * @see sendUDP to answer with UDP.
      * @param data Data to send to the peer (client or server)
-     * @param connType Type of connection to be used for the message, could be ConnType::TCP or ConnType::UDP (default : ConnType::TCP)
+     * @param connType Type of connection to be used for the message, could be NSC_ConnType::TCP or NSC_ConnType::UDP (default : NSC_ConnType::TCP)
      */
-    void send(const std::string& data, ConnType connType = ConnType::TCP);
+    void send(const std::string& data, NSC_ConnType connType = NSC_ConnType::TCP);
     
     /**
      * @brief Return the Client's identity string.
@@ -266,7 +266,7 @@ protected:
     /// Server's port
     int port;
     /// Session's IP type (IPv4 or IPv6)
-    IP_Type ipType;
+    NSC_IP_Type ipType;
 
     /**
      * This map register the callback for the DataReceived's events.
