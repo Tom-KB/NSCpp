@@ -82,7 +82,6 @@ void ClientPP::send(const string& data, NSC_ConnType connType) {
     case IPv4:
         if (connType == NSC_ConnType::TCP) {
             if (useCiphering && haveSecret) message = symmetricCipher->encrypt(data);
-            printf("Message here : %s\n", message.c_str());
             sendMessage(&clientTCP->socket, message.c_str(), static_cast<uint32_t>(message.size()), connType, clientTCP->ipType, &clientTCP->sin);
         }
         else if (type == ClientType::LOCAL) { // Can't use this function in REMOTE
