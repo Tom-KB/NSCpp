@@ -94,7 +94,7 @@ You’ll also find additional examples showcasing specific use cases of NSC++ th
 
 ### Server's creation with specific keys
 ```cpp
-unique_ptr<ServerPP> server = make_unique<ServerPP>("127.0.0.1", 25565, "/", IP_Type::IPv4, true, "public.key", "private.key");
+unique_ptr<ServerPP> server = make_unique<ServerPP>("127.0.0.1", 25565, "/", NSC_IP_Type::IPv4, true, "public.key", "private.key");
 server->start();
 // ...
 server->stop();
@@ -104,7 +104,7 @@ You can then share the **public key** with your clients and reuse the generated 
 
 ### Client's creation
 ```cpp
-unique_ptr<ClientPP> client = make_unique<ClientPP>("127.0.0.1", 25565, "/", IP_Type::IPv4, true);
+unique_ptr<ClientPP> client = make_unique<ClientPP>("127.0.0.1", 25565, "/", NSC_IP_Type::IPv4, true);
 client->setServerPKPath("serverPK.key");
 client->setKeysPaths("public.key", "private.key"); // Optional
 client->start();
@@ -116,9 +116,9 @@ The same applies to clients: if you want to reuse the same public/private key pa
 ### Client's message
 ```cpp
 std::string message = "...";
-client->send(message, ConnType::TCP);
+client->send(message, NSC_ConnType::TCP);
 // or
-client->send(message, ConnType::UDP);
+client->send(message, NSC_ConnType::UDP);
 ```
 This is the client-sided behaviour.
 
@@ -159,11 +159,11 @@ void ExampleChannel::run(stop_token st) {
 
                 if (echo) {
                     switch (clientData.connType) {
-                    case ConnType::TCP:
-                        clientData.client->send(ss.str(), ConnType::TCP);
+                    case NSC_ConnType::TCP:
+                        clientData.client->send(ss.str(), NSC_ConnType::TCP);
                         if (logging) groupManager.send(logKey, "[EXAMPLE] [TCP] ECHO : " + ss.str());
                         break;
-                    case ConnType::UDP:
+                    case NSC_ConnType::UDP:
                         sendUDP(&clientData.socket, &clientData.addr, clientData.ipType, ss.str());
                         if (logging) groupManager.send(logKey, "[EXAMPLE] [UDP] ECHO : " + ss.str());
                         break;
