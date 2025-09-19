@@ -275,7 +275,6 @@ void ServerPP::process(ServerEvent& event, const NSC_ConnType& connType) {
         Serializer& serializer = Serializer::getInstance();
         vector<string> message;
         string data(event.data, event.dataSize);
-        printf("%s\n", data.c_str());
 
         if (connType == NSC_ConnType::TCP && !clientData.client->getHaveSecret() && useCiphering) {
             // This messaged is supposed to be the client's public key
