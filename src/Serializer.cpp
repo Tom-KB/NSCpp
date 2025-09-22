@@ -44,8 +44,12 @@ void Serializer::add(const string& ID, const string& value, size_t idx) {
     if (idx < 0) return;
     string edit = value;
     sanitizeString(separator, edit);
-    if (serializedStrings[ID].size() <= idx) serializedStrings[ID].push_back(edit);
-    serializedStrings[ID].insert(serializedStrings[ID].begin() + idx, edit);
+    if (idx >= serializedStrings[ID].size()) {
+        serializedStrings[ID].push_back(edit);
+    }
+    else {
+        serializedStrings[ID].insert(serializedStrings[ID].begin() + idx, edit);
+    }
 }
 
 void Serializer::edit(const std::string& ID, const std::string& value, size_t idx) {
