@@ -121,37 +121,38 @@ void ClientPP::start() {
     if (type != ClientType::LOCAL) {
         throw runtime_error("You can't start a remote client.");
     }
-#if defined (_WIN32)
-    startup();
+
+    runThread = jthread([this](stop_token st){
+#if defined(_WIN32)
+        startup();
 #endif
 
-    clientTCP = createClient(address.c_str(), port, NSC_ConnType::TCP, ipType); // Update that later (IPv6 + UDP)
-    clientUDP = createClient(address.c_str(), port, NSC_ConnType::UDP, ipType);
-    if (clientTCP == nullptr || clientUDP == nullptr) {
-        throw runtime_error("Error when creating the client.");
-    }
-    isDisconnected = false;
-    init();
+        clientTCP = createClient(address.c_str(), port, NSC_ConnType::TCP, ipType);
+        clientUDP = createClient(address.c_str(), port, NSC_ConnType::UDP, ipType);
 
-    if (useCiphering) {
-        Serializer& serializer = Serializer::getInstance();
-        serializer.add("publicKey", "publicKeyPublishing");
-        serializer.add("publicKey", kxInterface->getPublicKey());
+        if (!clientTCP || !clientUDP) {
+            cerr << "Error creating client" << endl;
+            return;
+        }
 
-        useCiphering = false;
-        send(serializer.get("publicKey"));
-        useCiphering = true;
-        serializer.clear("publicKey");
-    }
+        isDisconnected = false;
+        init();
 
-    // Start the run main loop
-    runThread = jthread(
-        [this](stop_token st) {
-            try { this->run(st); }
-            catch (const exception& e) {
-                cerr << "Client run() raise exception : " << e.what() << endl;
-            }
-        }, stopTag.get_token());
+        if (useCiphering) {
+            Serializer& serializer = Serializer::getInstance();
+            serializer.add("publicKey", "publicKeyPublishing");
+            serializer.add("publicKey", kxInterface->getPublicKey());
+
+            useCiphering = false;
+            send(serializer.get("publicKey"));  // fait dans le thread
+            useCiphering = true;
+            serializer.clear("publicKey");
+        }
+
+        try { this->run(st); }
+        catch (const std::exception& e) { cerr << "Client run() raise exception: " << e.what() << endl; }
+
+    }, stopTag.get_token());
 }
 
 void ClientPP::addDataCallback(const string& key, function<void(vector<string>)> callback) {
